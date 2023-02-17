@@ -1,18 +1,18 @@
 #include <stdio.h>
-
 /**
- * main -Entry point
- *
- * Return: Always 0
+ * main - main entry point
+ * print numbers
+ * Return: 0
  */
+int main(void)
+{
+	int number = 0;
 
-int main (void)
-	int i:
-	
-	for (i = 0 ; i < 10 ; i++)
+	while (number < 10)
 	{
-		putchar(i + '0');
+		printf("%i", number);
+		number++;
 	}
-	putchar("\n");
+	putchar('\n');
 	return (0);
 }
