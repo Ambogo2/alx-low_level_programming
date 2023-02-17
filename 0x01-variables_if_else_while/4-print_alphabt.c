@@ -1,17 +1,21 @@
 #include <stdio.h>
-
 /**
- * main -main function
- *
- * Return: always 0
+ * main - main entry point
+ * print alphabet but less q and e
+ * Return: 0
  */
 int main(void)
 {
-	char i:
-	
-	for (i = 'a' ; i <= 'z' ; i++)
-		if (i != 'q' && i != 'e')
-			putchar(i);
-	putchar("\n");
+	char letter = 'a';
+
+	while (letter <= 'z')
+	{
+		if ((letter != 'q') && (letter != 'e'))
+		{
+			putchar(letter);
+		}
+		letter++;
+	}
+	putchar('\n');
 	return (0);
 }
