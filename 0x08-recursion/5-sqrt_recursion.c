@@ -3,7 +3,7 @@
 /**
  * _sqrt_recursion- a function that finds the squareroot of a number
  * @n:parameter taken by the function
- * Return- the squareroot
+ * Return:the squareroot
  */
 
 int _sqrt_recursion(int n)
