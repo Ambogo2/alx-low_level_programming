@@ -7,11 +7,11 @@
 *@owner:dog owner
 */
 
-struct dog
+typedef struct 
 {
 	char *name;
 	float age;
 	char *owner;
-};
+}dog_t;
 
 #endif /*DOG_H */
