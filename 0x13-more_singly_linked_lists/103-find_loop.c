@@ -1,4 +1,4 @@
-i#include "lists.h"
+#include "lists.h"
 
 /**
  * find_listint_loop- finds a loop in a linked list
@@ -35,3 +35,4 @@ listint_t *find_listint_loop(listint_t *head)
 	}
 
 	return (NULL);
+}
