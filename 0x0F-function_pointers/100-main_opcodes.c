@@ -27,18 +27,17 @@ int main(int argc, char *argv[])
 		printf("Error\n");
 		exit(2);
 	}
-	array = (char *)main;
+	array = (char *)&main;
 
 	for (i = 0; i < num_bytes; i++)
 	{
-		printf("%02x", array[i]);
-		if (i < num_bytes - 1)
+		if (i == num_bytes - 1)
 		{
-			printf(" ");
+			printf("%02hhx\n", array[i]);
+			break;
 		}
+		printf("%02hhx\n", array[i]);
 	}
-
-	printf("\n");
 
 	return (0);
 }
