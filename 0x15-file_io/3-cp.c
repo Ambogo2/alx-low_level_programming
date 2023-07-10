@@ -7,35 +7,53 @@
 
 #define BUFFER_SIZE 1024
 
+void error_98(int fd_from, char *buffer, char *argv);
+void error_99(int fd_from, char *buffer, char *argv);
+void error_100(int fd_from, char *buffer);
+
 /**
- * allocate_buffer - Allocates memory for the buffer.
- * @file: File name buffer is storing the characters for.
- *
- * Return: Pointer to the allocated buffer.
+ * error_98 - Checks for error 98.
+ * @fd_from: The file descriptor to be checked.
+ * @buffer: Buffer.
+ * @argv: Argument array.
  */
-char *allocate_buffer(char *file)
+void error_98(int fd_from, char *buffer, char *argv)
 {
-	char *buffer;
-
-	buffer = (char *)malloc(BUFFER_SIZE);
-	if (buffer == NULL)
+	if (fd_from < 0)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file);
-		exit(99);
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv);
+		free(buffer);
+		exit(98);
 	}
-
-	return (buffer);
 }
 
 /**
- * close_and_exit - Closes the file descriptor and exits with code 100.
- * @fd: The file descriptor to be closed.
+ * error_99 - Checks for error 99.
+ * @fd_to: The file descriptor to be checked.
+ * @buffer: Buffer.
+ * @argv: Argument array.
  */
-void close_and_exit(int fd)
+void error_99(int fd_to, char *buffer, char *argv)
 {
-	if (close(fd) == -1)
+	if (fd_to < 0)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd);
+		dprintf(STDERR_FILENO, "Error: Can't write to file %s\n", argv);
+		free(buffer);
+		exit(99);
+	}
+}
+
+/**
+ * error_100 - Checks for error 100.
+ * @result: The value to be checked.
+ * @buffer: Buffer.
+ */
+void error_100(int result, char *buffer)
+{
+	if (result < 0)
+	{
+		dprintf(STDERR_FILENO, "Error: Failed to close file\n");
+		free(buffer);
 		exit(100);
 	}
 }
@@ -49,7 +67,7 @@ void close_and_exit(int fd)
  */
 int main(int argc, char *argv[])
 {
-	int fd_from, fd_to, r, w;
+	int fd_from, fd_to, r;
 	char *buffer;
 
 	if (argc != 3)
@@ -58,41 +76,33 @@ int main(int argc, char *argv[])
 		exit(97);
 	}
 
-	buffer = allocate_buffer(argv[2]);
+	buffer = malloc(sizeof(char) * BUFFER_SIZE);
+	if (!buffer)
+	{
+		return (0);
+	}
 
 	fd_from = open(argv[1], O_RDONLY);
-	if (fd_from == -1)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
-		exit(98);
-	}
+	error_98(fd_from, buffer, argv[1]);
+	fd_to = open(argv[2], O_WRONLY | O_TRUNC | O_CREAT, 0644);
+	error_99(fd_to, buffer, argv[2]);
 
-	fd_to = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0644);
-	if (fd_to == -1)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
-		close_and_exit(fd_from);
-	}
-
-	while ((r = read(fd_from, buffer, BUFFER_SIZE)) > 0)
-	{
-		w = write(fd_to, buffer, r);
-		if (w == -1)
+	do {
+		r = read(fd_from, buffer, BUFFER_SIZE);
+		if (r == 0)
 		{
-			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
-			close_and_exit(fd_from);
+			break;
 		}
-	}
+		error_98(fd_from, buffer, argv[1]);
+		write(fd_to, buffer, r);
+		error_99(fd_to, buffer, argv[2]);
+	} while (r >= BUFFER_SIZE);
 
-	if (r == -1)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
-		close_and_exit(fd_from);
-	}
+	r = close(fd_from);
+	error_100(r, buffer);
+	r = close(fd_to);
+	error_100(r, buffer);
 
 	free(buffer);
-	close_and_exit(fd_from);
-	close_and_exit(fd_to);
-
 	return (0);
 }
