@@ -7,8 +7,7 @@
 *@h:pointer to the list to find the length
 *Return:The number of elements in a linked list
 */
-
-ssize_t dlistint_len(const dlistint_t *h)
+size_t dlistint_len(const dlistint_t *h)
 {
 	size_t count = 0;
 
@@ -17,5 +16,5 @@ ssize_t dlistint_len(const dlistint_t *h)
 		h = h->next;
 		count++;
 	}
-	return(count);
+	return (count);
 }
