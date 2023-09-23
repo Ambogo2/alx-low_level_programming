@@ -13,8 +13,8 @@
 | [0x09-static_libraries](https://github.com/Ambogo2/alx-low_level_programming/tree/master/0x09-static_libraries)| Static libraries                     |
 | [0x0A-argc_argv](https://github.com/Ambogo2/alx-low_level_programming/tree/master/0x0A-argc_argv)    | Command line Arguments               |
 | [0x0B-malloc_free](https://github.com/Ambogo2/alx-low_level_programming/tree/master/0x0B-malloc_free)                 | Dynamic memory allocation            |
-| [0x0C-more_malloc_free](https://github.com/Ambogo2/alx-low_level_programming/tree/master/0x0C-more_malloc_free)            |                                     |
-| [0x0D-preprocessor](https://github.com/Ambogo2/alx-low_level_programming/tree/master/0x0D-preprocessor)                 |                                     |
+| [0x0C-more_malloc_free](https://github.com/Ambogo2/alx-low_level_programming/tree/master/0x0C-more_malloc_free)            |    Malloc                                 |
+| [0x0D-preprocessor](https://github.com/Ambogo2/alx-low_level_programming/tree/master/0x0D-preprocessor)                 |     Preprocessor                                |
 | [0x0E-structures_typedef](https://github.com/Ambogo2/alx-low_level_programming/tree/master/0x0E-structures_typedef) |  Structures & Typedef                                   |
 |[0x0F-function_pointers](https://github.com/Ambogo2/alx-low_level_programming/tree/master/0x0F-function_pointers)             |    Function Pointers                                 |
 |[0x10-variadic_functions](https://github.com/Ambogo2/alx-low_level_programming/tree/master/0x10-variadic_functions)           |       Variadic Functions                              |
