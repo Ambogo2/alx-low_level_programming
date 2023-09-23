@@ -1,7 +1,7 @@
 ## alx low level programming language
  Project                          | Description                          |
 |----------------------------------|--------------------------------------|
-| [0x00-hello_world](#0x00-hello_world)| Introduction to C programming   |
+| 0x00-hello_world| Introduction to C programming   |
 | 0x01-variables_if_else_while     | Variables & conditional statements   |
 | 0x02-functions_nested_loops      | Functions & loops                    |
 | 0x03-debugging                   | Debugging & debugging techniques     |
