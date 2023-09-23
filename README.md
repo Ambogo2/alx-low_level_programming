@@ -1,5 +1,5 @@
 ## alx low level programming language
-       Project                          | Description                          |
+|Project                          | Description                          |
 |----------------------------------|--------------------------------------|
 | [0x00-hello_world](https://github.com/Ambogo2/alx-low_level_programming/tree/master/0x00-hello_world)| Introduction to C programming   |
 | [0x01-variables_if_else_while](https://github.com/Ambogo2/alx-low_level_programming/tree/master/0x01-variables_if_else_while)     | Variables & conditional statements   |
