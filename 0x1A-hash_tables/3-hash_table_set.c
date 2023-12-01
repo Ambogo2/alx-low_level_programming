@@ -11,14 +11,14 @@
 
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
-    hash_node_t *newNode;
+    shash_node_t *newNode;
     unsigned long int idx;
 
     if (ht == NULL || key == NULL || *key =='\0')
     {
         return (0);
     }
-    newNode = malloc(sizeof(hash_node_t));
+    newNode = malloc(sizeof(shash_node_t));
     if (newNode == NULL)
     {
         return (0);
