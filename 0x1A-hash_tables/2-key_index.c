@@ -1,4 +1,3 @@
-2-key_index.c
 #include <stdio.h>
 #include "hash_tables.h"
 
