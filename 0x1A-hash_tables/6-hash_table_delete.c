@@ -1,4 +1,3 @@
-6-hash_table_delete.c
 #include <stdio.h>
 #include "hash_tables.h"
 
@@ -12,6 +11,7 @@ void hash_table_delete(hash_table_t *ht)
 {
 	unsigned long int i;
 	hash_node_t *temp, *next;
+
 	if (ht == NULL)
 	{
 		return;
@@ -29,6 +29,5 @@ void hash_table_delete(hash_table_t *ht)
 		}
 	}
 	free(ht->array);
-	free(ht);
-    
+	free(ht); 
 }
