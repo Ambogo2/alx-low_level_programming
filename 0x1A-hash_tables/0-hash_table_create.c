@@ -4,12 +4,12 @@
 /**
  *hash_table_create - creates a hashtable.
  *@size:the size of the array
- *Return:pointer to the newly created hash table or NULL 
+ *Return:pointer to the newly created hash table or NULL
 */
 
 hash_table_t *hash_table_create(unsigned long int size)
 {
-    hash_table_t *table;
+	hash_table_t *table;
 	unsigned long int i;
 
 	if (size < 1)
@@ -34,3 +34,4 @@ hash_table_t *hash_table_create(unsigned long int size)
 
 	return (table);
 }
+
